@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github Issue Tracker</title>
     <!-- tailwind and daisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- style css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="geist">
@@ -17,8 +17,10 @@
         <div class="container mx-auto flex gap-5 md:gap-0 justify-between items-center">
             <!-- logo -->
             <div class="flex gap-1 items-center">
-                <img src="assets/logohead.png" alt="">
-                <h2 class="font-semibold sm:text-xl text-2xl hidden sm:block">GitHub Issues Tracker</h2>
+                <img src="assets/logohead.png" alt="" />
+                <h2 class="font-semibold sm:text-xl text-2xl hidden sm:block">
+                    GitHub Issues Tracker
+                </h2>
             </div>
             <!-- search and button -->
             <div class="flex gap-2">
@@ -32,18 +34,73 @@
                     </svg>
                     <input type="search" required placeholder="Search Issues" />
                 </label>
-                <button class="btn btn-primary bg-[#4A00FF]"><span class="mr-1">+</span>New Issue</button>
+                <button class="btn btn-primary bg-[#4A00FF]">
+                    <span class="mr-1">+</span>New Issue
+                </button>
             </div>
-
         </div>
     </header>
 
     <!-- main -->
     <main class="container md:w-[1120px] mx-auto">
-        <div class="bg-white p-6 inset-shadow-xs shadow-xl space-x-3">
+        <!-- tabs section -->
+        <div class="bg-white p-6 shadow-sm border border-gray-200 rounded-md space-x-3 text-center sm:text-left">
             <button class="font-semibold btn btn-primary text-white">All</button>
-            <button class=" btn btn-outline border border-[#E4E4E7] text-[#64748B] font-medium">Open</button>
-            <button class=" btn btn-outline border border-[#E4E4E7] text-[#64748B] font-medium">Closed</button>
+            <button class="btn btn-outline border border-[#E4E4E7] text-[#64748B] font-medium">
+                Open
+            </button>
+            <button class="btn btn-outline border border-[#E4E4E7] text-[#64748B] font-medium">
+                Closed
+            </button>
+        </div>
+        <!-- count section -->
+        <div
+            class="flex items-center sm:justify-between flex-col sm:flex-row shadow-sm gap-2 mt-4 p-6 border border-gray-200 rounded-md">
+            <div class="flex items-center gap-2">
+                <img class="p-2 bg-[#ECE4FF] rounded-full" src="assets/Aperture.png" alt="" />
+                <div>
+                    <h3 class="font-semibold text-xl">50 Issues</h3>
+                    <p class="text-[#64748B] text-[12px] sm:text-base font-medium">
+                        Track and manage your project issues
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-3 space-x-2">
+                <span class="flex font-medium items-center gap-2"><img src="assets/green.png" alt="" />Open</span>
+                <span class="flex font-medium items-center gap-2"><img src="assets/blue.png" alt="" />Close</span>
+            </div>
+        </div>
+        <!-- cards -->
+        <div id="get-all" class="grid grid-cols-4 p-6 gap-3">
+            <div class="card bg-base-100 rounded-none w-96 shadow-sm">
+                <div class="card-body border border-gray-200 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <img src="assets/Open-Status.png" alt="" />
+                        <div class="badge badge-secondary text-[#EF4444] font-medium bg-[#FEECEC]">
+                            HIGH
+                        </div>
+                    </div>
+                    <h2 class="card-title font-semibold text-lg my-2">
+                        Fix navigation menu on mobile devices
+                    </h2>
+                    <p class="text-[#64748B]">
+                        The navigation menu doesn't collapse properly on mobile devices...
+                    </p>
+                    <div class="card-actions justify-start my-2">
+                        <div class="badge badge-secondary rounded-full text-[#EF4444] font-medium bg-[#FEECEC]">
+                            <img src="assets/incect.png" alt="" /> BUG
+                        </div>
+                        <div class="badge badge-secondary rounded-full text-[#D97706] font-medium bg-[#FFF8DB]">
+                            <img src="assets/dot.png" alt="" /> HELP WANTED
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-200 p-0 space-y-2 mt-2 pt-3">
+                        <p class="text-[#64748B]">#1
+                            by john_doe</p>
+                        <p class="text-[#64748B]">1/15/2024</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!-- script js -->
