@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Issue Tracker</title>
+
+    <!-- style css -->
+    <link rel="stylesheet" href="style.css">
     <!-- tailwind and daisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- style css -->
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="geist">
@@ -23,20 +24,26 @@
             <div class="card-body w-full">
                 <fieldset class=" fieldset">
                     <label class="label text-base text-[#1F2937]">Username</label>
-                    <input id="input-user" type="text" class="outline-none input w-full text-[#64748B]"
+                    <input value="admin" id="input-user" type="text" class="outline-none input w-full text-[#64748B]"
                         placeholder="Enter Username" />
                     <p class="text-left text-[#4A00FF] text-sm mb-2">Default : admin</p>
                     <label class="label text-base font-medium text-[#1F2937]">Password</label>
-                    <input id="input-password" type="password" class="outline-none input w-full text-[#64748B]"
-                        placeholder="Enter Password" />
+                    <input value="admin123" id="input-password" type="password"
+                        class="outline-none input w-full text-[#64748B]" placeholder="Enter Password" />
                     <p class="text-left text-[#4A00FF] text-sm mb-2">Default : admin123</p>
                     <button id="login-btn" class="cursor-pointer btn btn-primary mt-4">Sign In</button>
                 </fieldset>
 
-                <div class="flex justify-center gap-5 items-center">
+                <div class="flex justify-center gap-5 items-center my-4">
                     <hr class="text-[#E4E4E7] w-full">
-                    <div class="">Or</div>
+                    <div class="">OR</div>
                     <hr class="text-[#E4E4E7] w-full">
+                </div>
+
+                <p class="text-[#64748B] mt-1 mb-2 font-normal text-base">Demo Credentials:</p>
+                <div>
+                    <p><span class="font-bold">Username:</span> admin</p>
+                    <p><span class="font-bold">Password:</span> admin123</p>
                 </div>
             </div>
 

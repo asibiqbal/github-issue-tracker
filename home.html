@@ -4,11 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Github Issue Tracker</title>
+    <!-- tailwind and daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- style css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <h1>test</h1>
+<body class="geist">
+    <header class="bg-white py-5">
+        <div class="container mx-auto flex gap-5 md:gap-0 justify-between items-center">
+            <!-- logo -->
+            <div class="flex gap-1 items-center">
+                <img src="assets/logohead.png" alt="">
+                <h2 class="font-semibold sm:text-xl text-2xl hidden sm:block">GitHub Issues Tracker</h2>
+            </div>
+            <!-- search and button -->
+            <div class="flex gap-2">
+                <label class="input">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                            stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input type="search" required placeholder="Search Issues" />
+                </label>
+                <button class="btn btn-primary bg-[#4A00FF]"><span class="mr-1">+</span>New Issue</button>
+            </div>
+
+        </div>
+    </header>
+    <!-- script js -->
+    <script src="script.js"></script>
 </body>
 
 </html>
