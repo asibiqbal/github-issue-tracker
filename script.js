@@ -1,5 +1,4 @@
 // all calls
-
 const getAll = document.getElementById("get-all");
 const count = document.getElementById("count");
 const loadingSpinner = document.getElementById("load-spinner");
@@ -7,6 +6,13 @@ const loadingSpinner = document.getElementById("load-spinner");
 const btnAll = document.getElementById('btn-all');
 const btnOpen = document.getElementById('btn-open');
 const btnClose = document.getElementById('btn-close');
+
+// search elements
+const inputSearch = document.getElementById('input-search');
+const btnSearch = document.getElementById('btn-search'); 
+
+// global variable to store all issues
+let allData = []; 
 
 // toggle and active btn 
 function activeBtn(activeBtn) {
@@ -27,13 +33,16 @@ async function loadAll(filterStatus = 'all') {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     
-    let issuesToDisplay = data.data;
+    // Store data globally for search
+    allData = data.data; 
+
+    let issuesToDisplay = allData;
 
     // filter open & closed
     if (filterStatus === 'open') {
-        issuesToDisplay = data.data.filter(item => item.status === 'open');
+        issuesToDisplay = allData.filter(item => item.status === 'open');
     } else if (filterStatus === 'close') {
-        issuesToDisplay = data.data.filter(item => item.status === 'closed');
+        issuesToDisplay = allData.filter(item => item.status === 'closed');
     }
 
     displayAll(issuesToDisplay);
@@ -44,10 +53,12 @@ async function loadAll(filterStatus = 'all') {
 
 // display function
 function displayAll(allTabs) {
+    getAll.innerHTML = "";
+    
     allTabs.forEach((allTab) => {
         const allCard = document.createElement("div");
         
-       // border colors
+        // border colors (3px top border)
         const borderTop = allTab.status === "open" ? "border-t-green-500" : "border-t-purple-500";
 
         // badge styles
@@ -98,9 +109,22 @@ function displayAll(allTabs) {
         getAll.appendChild(allCard);
     });
     
-    //counts
+    //counts update
     count.innerText = allTabs.length;
 }
+
+// search functions
+btnSearch.addEventListener('click', () => {
+    const searchText = inputSearch.value.toLowerCase();
+    
+// search title and description
+    const searchResult = allData.filter(issue => 
+        issue.title.toLowerCase().includes(searchText) || 
+        issue.description.toLowerCase().includes(searchText)
+    );
+
+    displayAll(searchResult);
+});
 
 // button clicks
 btnAll.addEventListener('click', () => {
@@ -118,5 +142,5 @@ btnClose.addEventListener('click', () => {
     loadAll('close');
 });
 
-
+// load all
 loadAll();
