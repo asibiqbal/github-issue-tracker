@@ -77,6 +77,14 @@ function displayAll(allTabs) {
             badgeColors = "text-[#64748B] bg-[#F1F5F9]";
         }
 
+        const labelsHTML = allTab.labels.map(label => {
+    return `
+        <div class="badge border-none rounded-full text-[#EF4444] font-medium bg-[#FEECEC]">
+            ${label.toUpperCase()}
+        </div>
+    `
+}).join("");
+
         allCard.innerHTML = `
             <div onclick="openModal(${allTab.id})" class="h-full py-6 px-5 border-x border-b border-t-[4px] ${borderTop} w-full border-gray-200 rounded-lg">
                 <div class="flex justify-between items-center">
@@ -96,14 +104,9 @@ function displayAll(allTabs) {
                 <p class="text-[#64748B] line-clamp-2 mb-4">
                      ${allTab.description}
                 </p>
-                <div class="flex justify-start gap-2 my-2">
-                    <div class="badge border-none rounded-full text-[#EF4444] font-medium bg-[#FEECEC]">
-                        <img src="assets/insect.png" alt="" /> BUG
-                    </div>
-                    <div class="badge border-none rounded-full text-[#D97706] font-medium bg-[#FFF8DB]">
-                        <img src="assets/dot.png" alt="" /> HELP WANTED
-                    </div>
-                </div>
+<div class="flex justify-start gap-2 my-2 flex-wrap">
+    ${labelsHTML}
+</div>
                 <div class="border-t border-gray-200 p-0 space-y-1 mt-5 pt-5">
                     <p class="text-[#64748B]">#1 by ${allTab.author || 'User'}</p>
                     <p class="text-[#64748B]">
@@ -156,6 +159,14 @@ async function openModal(id){
 
     const issue = data.data;
 
+const labelsHTML = issue.labels.map(label => {
+    return `
+        <div class="badge border-none rounded-full text-[#EF4444] font-medium bg-[#FEECEC]">
+            ${label.toUpperCase()}
+        </div>
+    `
+}).join("");
+
     const statusBadge =
         issue.status === "open"
             ? `<div class="badge badge-success rounded-full text-white">Opened</div>`
@@ -181,6 +192,9 @@ async function openModal(id){
                 ${formattedDate}
             </span>
         </div>
+        <div class="flex justify-start gap-2 my-4">
+    ${labelsHTML}
+</div>
 
         <p class="py-2 text-[#64748B]">
             ${issue.description}
