@@ -1,34 +1,43 @@
-const getAll = document.getElementById('get-all');
+const getAll = document.getElementById("get-all");
 getAll.innerHTML = "";
-const count = document.getElementById('count');
+// count
+const count = document.getElementById("count");
+// loading spinner
+const loadingSpinner = document.getElementById("load-spinner");
 
 //   get count
-function getCount(){
-    count.innerText = getAll.children.length;
-    console.log(count.innerText)
+function getCount() {
+  count.innerText = getAll.children.length;
 }
 
 // load all types
 async function loadAll() {
-  const res = await 
-  fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
+
+  loadingSpinner.classList.remove("hidden");
+  loadingSpinner.classList.add("flex");
+  const res = await fetch(
+    "https://phi-lab-server.vercel.app/api/v1/lab/issues",
+  );
+  
   const data = await res.json();
+  loadingSpinner.classList.add("hidden");
+
   displayAll(data.data);
 }
 
 // display
-function displayAll(allTabs){
-allTabs.forEach((allTab) => {
-const allCard = document.createElement('div');
-allCard.innerHTML = `
+function displayAll(allTabs) {
+  allTabs.forEach((allTab) => {
+    const allCard = document.createElement("div");
+    allCard.innerHTML = `
             <div class="h-full py-6 px-5 border w-full border-gray-200 rounded-lg">
                 <div class="flex justify-between items-center">
                 <div>
-                ${allTab.status == "open" 
-                  ? ` <img src="./assets/Open-Status.png" alt="" /> `
-                  : ` <img src="./assets/Closed- Status .png" alt="" /> ` 
-                  
-}
+                ${
+                  allTab.status == "open"
+                    ? ` <img src="./assets/Open-Status.png" alt="" /> `
+                    : ` <img src="./assets/Closed- Status .png" alt="" /> `
+                }
                 </div>
                     <div class="badge badge-secondary text-[#EF4444] font-medium bg-[#FEECEC]">
                         ${allTab.priority}
@@ -50,38 +59,31 @@ allCard.innerHTML = `
                 </div>
                 <div class="border-t border-gray-200 p-0 space-y-2 mt-5 pt-3">
                     <p class="text-[#64748B]">#1
-                        by john_doe</p>
-                    <p class="text-[#64748B]">1/15/2024</p>
+                        by ${allTab.author}</p>
+                    <p class="text-[#64748B]">${allTab.createdAt}</p>
                 </div>
             </div>
-`
-getAll.appendChild(allCard);
-getCount();
-}) 
+`;
+    getAll.appendChild(allCard);
+    getCount();
+  });
 }
-
-
-
 
 loadAll();
 
-
 // get login button
 
-document.getElementById('login-btn').addEventListener("click" , function(){
-  const inputUser = document.getElementById('input-user')
-  const inputPassword = document.getElementById('input-password')
-  inputPassword.innerText = ""
+document.getElementById("login-btn").addEventListener("click", function () {
+  const inputUser = document.getElementById("input-user");
+  const inputPassword = document.getElementById("input-password");
+  inputPassword.innerText = "";
 
-  if (inputUser.value == "admin" && inputPassword.value == "admin123"){
-    alert('login successful');
+  if (inputUser.value == "admin" && inputPassword.value == "admin123") {
     window.location.assign("./home.html");
-  }
-  else{
-    alert('Login Failed');
+  } else {
+    alert("Login Failed");
     return;
   }
-  
-  inputUser.innerText = ""
 
-})
+  inputUser.innerText = "";
+});
