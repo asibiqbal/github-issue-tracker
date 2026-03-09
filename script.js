@@ -1,5 +1,13 @@
 const getAll = document.getElementById('get-all');
 getAll.innerHTML = "";
+const count = document.getElementById('count');
+
+//   get count
+function getCount(){
+    count.innerText = getAll.children.length;
+    console.log(count.innerText)
+}
+
 // load all types
 async function loadAll() {
   const res = await 
@@ -13,40 +21,47 @@ function displayAll(allTabs){
 allTabs.forEach((allTab) => {
 const allCard = document.createElement('div');
 allCard.innerHTML = `
-
-            <div id="get-all" class="card bg-base-100 rounded-none shadow-sm">
-                <div class="card-body border border-gray-200 rounded-lg">
-                    <div class="flex justify-between items-center">
-                        <img src="assets/Open-Status.png" alt="" />
-                        <div class="badge badge-secondary text-[#EF4444] font-medium bg-[#FEECEC]">
-                            HIGH
-                        </div>
+            <div class="h-full py-6 px-5 border w-full border-gray-200 rounded-lg">
+                <div class="flex justify-between items-center">
+                <div>
+                ${allTab.status == "open" 
+                  ? ` <img src="./assets/Open-Status.png" alt="" /> `
+                  : ` <img src="./assets/Closed- Status .png" alt="" /> ` 
+                  
+}
+                </div>
+                    <div class="badge badge-secondary text-[#EF4444] font-medium bg-[#FEECEC]">
+                        ${allTab.priority}
                     </div>
-                    <h2 class="card-title font-semibold text-lg my-2">
-                        Fix navigation menu on mobile devices
-                    </h2>
-                    <p class="text-[#64748B]">
-                        The navigation menu doesn't collapse properly on mobile devices...
-                    </p>
-                    <div class="card-actions justify-start my-2">
-                        <div class="badge badge-secondary rounded-full text-[#EF4444] font-medium bg-[#FEECEC]">
-                            <img src="assets/incect.png" alt="" /> BUG
-                        </div>
-                        <div class="badge badge-secondary rounded-full text-[#D97706] font-medium bg-[#FFF8DB]">
-                            <img src="assets/dot.png" alt="" /> HELP WANTED
-                        </div>
+                </div>
+                <h2 class="card-title font-semibold text-lg my-3">
+                     ${allTab.title}
+                </h2>
+                <p class="text-[#64748B] line-clamp-2 mb-4">
+                     ${allTab.description}
+                </p>
+                <div class="flex  justify-start gap-2 my-2">
+                    <div class="badge badge-secondary rounded-full text-[#EF4444] font-medium bg-[#FEECEC]">
+                        <img src="assets/incect.png" alt="" /> BUG
                     </div>
-                    <div class="border-t border-gray-200 p-0 space-y-2 mt-2 pt-3">
-                        <p class="text-[#64748B]">#1
-                            by john_doe</p>
-                        <p class="text-[#64748B]">1/15/2024</p>
+                    <div class="badge badge-secondary rounded-full text-[#D97706] font-medium bg-[#FFF8DB]">
+                        <img src="assets/dot.png" alt="" /> HELP WANTED
                     </div>
+                </div>
+                <div class="border-t border-gray-200 p-0 space-y-2 mt-5 pt-3">
+                    <p class="text-[#64748B]">#1
+                        by john_doe</p>
+                    <p class="text-[#64748B]">1/15/2024</p>
                 </div>
             </div>
 `
 getAll.appendChild(allCard);
+getCount();
 }) 
 }
+
+
+
 
 loadAll();
 
@@ -70,4 +85,3 @@ document.getElementById('login-btn').addEventListener("click" , function(){
   inputUser.innerText = ""
 
 })
-
