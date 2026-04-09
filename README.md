@@ -1,25 +1,32 @@
 # 🐛 GitHub Issue Tracker
 
-A simple and efficient issue tracking system built to manage bugs, tasks, and feature requests for your projects.
+## 📌 Overview
+GitHub Issue Tracker is a full-stack web application that allows developers and teams to manage project issues such as bugs, tasks, and feature requests efficiently. It helps organize workflow and track progress in a structured way.
 
-## 🚀 Features
+## 📸 Screenshot
+![App Screenshot](./screenshots/issue-tracker.png)
 
-- 📌 Create, update, and delete issues
-- 🏷️ Categorize issues using labels
-- 👤 Assign issues to users
-- ✅ Track issue status (open/closed)
-- 🔍 Search and filter issues
-- 📊 Organized dashboard for issue management
+## 🛠️ Main Technologies
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Express.js
+- MongoDB
 
-## 📸 Demo
+## ✨ Features
+- 📝 Create, update, and delete issues  
+- 👤 Assign issues to users  
+- 📊 Track issue status (Open / Closed)  
+- 🔍 Search and filter issues  
+- 📌 Organized and clean dashboard  
 
-_Add screenshots or demo GIF here_
-
-## 🛠️ Tech Stack
-
-- Frontend: HTML, CSS, JavaScript / React (update if needed)
-- Backend: Node.js / Express (update if needed)
-- Database: MongoDB / MySQL (update if needed)
-
-## 📂 Project Structure
-
+## 📦 Dependencies
+```json
+{
+  "express": "^4.x",
+  "mongoose": "^7.x",
+  "dotenv": "^16.x",
+  "cors": "^2.x",
+  "nodemon": "^3.x"
+}
