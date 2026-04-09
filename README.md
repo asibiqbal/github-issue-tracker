@@ -10,9 +10,6 @@ GitHub Issue Tracker is a full-stack web application that allows developers and 
 - HTML
 - CSS
 - JavaScript
-- Node.js
-- Express.js
-- MongoDB
 
 ## ✨ Features
 - 📝 Create, update, and delete issues  
