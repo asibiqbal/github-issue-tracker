@@ -3,9 +3,11 @@
 ## 📌 Overview
 GitHub Issue Tracker is a full-stack web application that allows developers and teams to manage project issues such as bugs, tasks, and feature requests efficiently. It helps organize workflow and track progress in a structured way.
 
-## 📸 Screenshot
-![App Screenshot](./screenshots/issue-tracker.png)
+## 🌐 Live & Links
+- 🔗 Live Site: https://asibiqbal.github.io/github-issue-tracker/  
+- 🔗 GitHub Repo: https://github.com/asibiqbal/github-issue-tracker
 
+  
 ## 🛠️ Main Technologies
 - HTML
 - CSS
